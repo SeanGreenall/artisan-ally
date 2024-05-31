@@ -15,8 +15,8 @@ import { Head, Link } from '@inertiajs/vue3';
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="flex flex-wrap justify-center gap-4 text-center sm:pt-20">
-                        <Link :href="route('inventory-management')" class="bg-red-500 p-4 rounded-md shadow-md w-96 h-64">
+                    <div class="flex flex-wrap justify-center gap-4 text-center sm:py-20">
+                        <Link :href="route('inventory')" class="bg-red-500 p-4 rounded-md shadow-md w-96 h-64">
                             <div class="text-lg font-bold mb-2">Inventory Management</div>
                             <div class="text-gray-700">Content of card 1 goes here...</div>
                         </Link>

@@ -19,8 +19,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/management', function () {
-    return Inertia::render('Management');
+    return Inertia::render('Management/index');
 })->middleware(['auth', 'verified'])->name('management');
+
+Route::get('/inventory', function () {
+    return Inertia::render('Management/Inventory/index');
+})->middleware(['auth', 'verified'])->name('inventory');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
