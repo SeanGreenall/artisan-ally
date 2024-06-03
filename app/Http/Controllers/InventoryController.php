@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventory;
+use App\Models\User;
+use Database\Factories\InventoryFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InventoryController extends Controller
 {
     public function index()
     {
+        $data = DB::table('inventories')
+            ->select('name', 'quantity')
+            ->latest()
+            ->get();
+
+        return json_encode($data);
     }
 
     public function create()
@@ -32,16 +42,5 @@ class InventoryController extends Controller
 
     public function destroy()
     {
-    }
-
-    public function get_data()
-    {
-        $data = [
-            [
-                'name' => 'Sean',
-                'quantity' => 1
-            ]
-        ];
-        return json_encode($data);
     }
 }

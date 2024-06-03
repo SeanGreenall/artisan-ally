@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,18 +15,24 @@ Route::get('/', function () {
     ]);
 });
 
+// Dashboard //
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Management //
 Route::get('/management', function () {
     return Inertia::render('Management/index');
 })->middleware(['auth', 'verified'])->name('management');
 
+// Inventory //
 Route::get('/inventory', function () {
     return Inertia::render('Management/Inventory/index');
 })->middleware(['auth', 'verified'])->name('inventory');
 
+Route::get('InventoryController/index', [InventoryController::class, 'index'])->middleware('auth');
+
+// Auth //
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

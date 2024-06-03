@@ -12,7 +12,7 @@ export default {
     },
     methods:{
         getData(){
-            axios.get('/data').then((response) => {
+            axios.get('/InventoryController/index').then((response) => {
                 this.info = response.data;
             })
         }
@@ -34,7 +34,9 @@ export default {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <v-data-table-server :items="this.info"></v-data-table-server>
+                    <v-data-table-server :items="this.info">
+                    
+                    </v-data-table-server>
                 </div>
             </div>
         </div>
